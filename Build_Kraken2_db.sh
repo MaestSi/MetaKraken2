@@ -52,5 +52,5 @@ done
 
 DB_name=$(echo $kraken2_db"_db" | sed 's/ /_/g')
 kraken2-build --download-taxonomy --db $DB_name
-kraken2-build --download-library $db --db $DB_name
+kraken2-build --download-library $kraken2_db --db $DB_name
 kraken2-build --build --db $DB_name --threads $threads
