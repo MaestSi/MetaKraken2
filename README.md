@@ -68,7 +68,16 @@ Inputs:
 
 Output:
 
-* \<kraken2_db\>\_db: folder containing kraken2 database 
+* \<kraken2_db\>\_db: folder containing kraken2 database
+
+
+## Results visualization
+
+After completing the analysis, you can open \<sample_name\>\_kraken2_report\_Krona_report.html with a browser.
+
+<p align="center">
+  <img src="Figures/Krona_report_example.png" alt="drawing" width="30000" title="Krona report example">
+</p>
 
 ## Citations
 
