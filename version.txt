@@ -1,1 +1,1 @@
-MetaKraken2-v0.1.0
+MetaKraken2-v1.0.0
