@@ -4,7 +4,7 @@ A Metagenomic pipeline for Kraken2 analysis and Krona report generation.
 **MetaKraken2** is a Metagenomic pipeline for Kraken2 analysis and Krona report generation. It classifies each read with Kraken2 and then generates an interactive pie chart with Krona.
 
 <p align="center">
-  <img src="Figures/MetaKraken2_pipeline.png" alt="drawing" width="400" title="MetaKraken2">
+  <img src="Figures/MetaKraken2_pipeline.png" alt="drawing" width="300" title="MetaKraken2">
 </p>
 
 ## Getting started
