@@ -69,7 +69,7 @@ KRONA=ktImportTaxonomy
 
 KRAKEN2_OUTPUT=$WORKING_DIR"/"$SAMPLE_NAME"_kraken2_output.txt"
 KRAKEN2_REPORT=$WORKING_DIR"/"$SAMPLE_NAME"_kraken2_report.txt"
-KRONA_REPORT=$WORKING_DIR"/"$(echo $(basename $KRAKEN2_OUTPUT) | sed 's/\.*$/_Krona_report.html/')
+KRONA_REPORT=$WORKING_DIR"/"$(echo $(basename $KRAKEN2_OUTPUT) | sed 's/\.*$/_Krona_report.html/' | sed 's/\.txt//')
 
 $KRAKEN2 --db $kraken2_db --output $KRAKEN2_OUTPUT --report $KRAKEN2_REPORT --threads $threads $fastq_reads
 $KRONA -q 2 -t 3 -s 4 $KRAKEN2_OUTPUT -o $KRONA_REPORT
