@@ -20,7 +20,7 @@
 #!/bin/bash
 
 
-usage="$(basename "$0") [-f fastq_reads] [-db kraken2_db] [-t threads]"
+usage="$(basename "$0") [-f fastq_reads] [-db kraken2_db] [-c confidence_scoring [0-1]] [-t threads]"
 
 while :
 do
@@ -38,6 +38,11 @@ do
            kraken2_db=$2
            shift 2
            echo "Kraken2 indexed db: $kraken2_db"
+           ;;
+      -c)
+           confidence_scoring=$2
+           shift 2
+           echo "Confidence scoring: $confidence_scoring"
            ;;
       -t)
            threads=$2
@@ -67,9 +72,9 @@ THREADS=$threads
 KRAKEN2=kraken2
 KRONA=ktImportTaxonomy
 
-KRAKEN2_OUTPUT=$WORKING_DIR"/"$SAMPLE_NAME"_kraken2_output.txt"
-KRAKEN2_REPORT=$WORKING_DIR"/"$SAMPLE_NAME"_kraken2_report.txt"
+KRAKEN2_OUTPUT=$WORKING_DIR"/"$SAMPLE_NAME"_confidence_"$confidence_scoring"_kraken2_output.txt"
+KRAKEN2_REPORT=$WORKING_DIR"/"$SAMPLE_NAME"_confidence_"$confidence_scoring"_kraken2_report.txt"
 KRONA_REPORT=$WORKING_DIR"/"$(echo $(basename $KRAKEN2_OUTPUT) | sed 's/\.*$/_Krona_report.html/' | sed 's/\.txt//')
 
-$KRAKEN2 --db $kraken2_db --output $KRAKEN2_OUTPUT --report $KRAKEN2_REPORT --threads $threads $fastq_reads
+$KRAKEN2 --db $kraken2_db --output $KRAKEN2_OUTPUT --report $KRAKEN2_REPORT --confidence $confidence_scoring --threads $threads $fastq_reads
 $KRONA -q 2 -t 3 -s 4 $KRAKEN2_OUTPUT -o $KRONA_REPORT
