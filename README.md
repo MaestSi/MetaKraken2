@@ -47,7 +47,7 @@ Inputs:
 
 * \<sample\_name.fast*\>: fastq or fasta file containing sequences to be analysed
 * \<kraken2_db\>: kraken2-indexed database
-* \<confidence_scoring\>: confidence value in [0-1], defined as C/Q, where C is the number of k-mers mapped to LCA values in the clade rooted at the label, and Q is the number of k-mers in the sequence that lack an ambiguous nucleotide; higher values will result in more stringent classifications
+* \<confidence_scoring\>: confidence value in [0-1], defined as C/Q, where C is the number of k-mers mapped to LCA values in the clade rooted at the label, and Q is the number of k-mers in the sequence that lack an ambiguous nucleotide; higher values will result in more stringent classifications. Suggested values 0.05/0.1
 * \<threads\>: maximum number of threads to use
 
 Outputs:
