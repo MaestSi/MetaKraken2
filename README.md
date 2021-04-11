@@ -47,14 +47,14 @@ Inputs:
 
 * \<sample\_name.fast*\>: fastq or fasta file containing sequences to be analysed
 * \<kraken2_db\>: kraken2-indexed database
-* \<confidence scoring\>: confidence value in [0-1], defined as C/Q, where C is the number of k-mers mapped to LCA values in the clade rooted at the label, and Q is the number of k-mers in the sequence that lack an ambiguous nucleotide; higher values will result in more stringent classifications
+* \<confidence_scoring\>: confidence value in [0-1], defined as C/Q, where C is the number of k-mers mapped to LCA values in the clade rooted at the label, and Q is the number of k-mers in the sequence that lack an ambiguous nucleotide; higher values will result in more stringent classifications
 * \<threads\>: maximum number of threads to use
 
 Outputs:
 
-* \<sample_name\>\_kraken2_output.txt: Kraken2 output
-* \<sample_name\>\_kraken2_report.txt: Kraken2 report used by Krona for html report generation
-* \<sample_name\>\_kraken2_report\_Krona_report.html: interatctive pie chart produced by Krona
+* \<sample_name\>\_confidence_\<confidence_scoring\>\_kraken2_output.txt: Kraken2 output
+* \<sample_name\>\_confidence_\<confidence_scoring\>\_kraken2_report.txt: Kraken2 report used by Krona for html report generation
+* \<sample_name\>\_confidence_\<confidence_scoring\>\_kraken2_report\_Krona_report.html: interatctive pie chart produced by Krona
 
 **Build_Kraken2_db.sh**
 
