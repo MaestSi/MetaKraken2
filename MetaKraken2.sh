@@ -32,7 +32,7 @@ do
       -f)
           fastq_reads=$(realpath $2)
           shift 2
-          echo "Fastq reads: $fastq_reads"
+          echo "Sequences: $fastq_reads"
           ;;
       -db)
            kraken2_db=$2
