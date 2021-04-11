@@ -41,12 +41,13 @@ A conda environment named _MetaKraken2_env_ is created, where kraken2 and Krona 
 **MetaKraken2.sh**
 
 Usage:
-./MetaKraken2.sh -f \<sample\_name.fastq\> -db \<kraken2_db\> -t \<threads\>
+./MetaKraken2.sh -f \<sample\_name.fast*\> -db \<kraken2_db\> -c \<confidence_scoring\> -t \<threads\>
 
 Inputs:
 
-* \<sample\_name.fastq\>: fastq file containing reads to be analysed
+* \<sample\_name.fast*\>: fastq or fasta file containing sequences to be analysed
 * \<kraken2_db\>: kraken2-indexed database
+* \<confidence scoring\>: confidence value in [0-1], defined as C/Q, where C is the number of k-mers mapped to LCA values in the clade rooted at the label, and Q is the number of k-mers in the sequence that lack an ambiguous nucleotide; higher values will result in more stringent classifications
 * \<threads\>: maximum number of threads to use
 
 Outputs:
@@ -62,7 +63,7 @@ Usage:
 
 Inputs:
 
-* \<kraken2_db\>: kraken2 database you want to build. Possible choices are: archaea, bacteria, plasmid, viral, human, fungi, plant, protozoa, nr, nt, UniVec, UniVec_Core. You can include multiple libraries at once by delimiting them with double quotes (e.g. "archea bacteria")
+* \<kraken2_db\>: kraken2 database you want to build. Possible choices are: standard, archaea, bacteria, plasmid, viral, human, fungi, plant, protozoa, nr, nt, UniVec, UniVec_Core. You can include multiple libraries at once by delimiting them with double quotes (e.g. "archea bacteria")
 * \<threads\>: maximum number of threads to use
 
 Output:
