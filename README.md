@@ -63,7 +63,7 @@ Usage:
 
 Inputs:
 
-* \<kraken2_db\>: kraken2 database you want to build. Possible choices are: standard, archaea, bacteria, plasmid, viral, human, fungi, plant, protozoa, nr, nt, UniVec, UniVec_Core. You can include multiple libraries at once by delimiting them with double quotes (e.g. "archea bacteria")
+* \<kraken2_db\>: kraken2 database you want to build. Possible choices are: standard, archaea, bacteria, plasmid, viral, human, fungi, plant, protozoa, nr, nt, UniVec, UniVec_Core. Except for standard database, you can include multiple libraries at once by delimiting them with double quotes (e.g. "archea bacteria")
 * \<threads\>: maximum number of threads to use
 
 Output:
