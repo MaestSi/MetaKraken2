@@ -65,9 +65,8 @@ do
     esac
 done
 
-
-SAMPLE_NAME=$(echo $(basename $fastq_reads) | sed 's/\.fast.*//')
-WORKING_DIR=$(dirname $fastq_reads)
+SAMPLE_NAME=$(echo $(basename $fastq_reads) | cut -f1 | sed 's/\.fast.*//')
+WORKING_DIR=$(dirname $fastq_reads | head -n1)
 THREADS=$threads
 KRAKEN2=kraken2
 KRONA=ktImportTaxonomy
