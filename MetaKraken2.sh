@@ -75,5 +75,8 @@ KRAKEN2_OUTPUT=$WORKING_DIR"/"$SAMPLE_NAME"_confidence_"$confidence_scoring"_kra
 KRAKEN2_REPORT=$WORKING_DIR"/"$SAMPLE_NAME"_confidence_"$confidence_scoring"_kraken2_report.txt"
 KRONA_REPORT=$WORKING_DIR"/"$(echo $(basename $KRAKEN2_OUTPUT) | sed 's/\.*$/_Krona_report.html/' | sed 's/\.txt//')
 
+num_pairs=$(echo $fastq_reads | grep -w -o "fastq" | wc -l)
+if [[ $num_pairs -eq 2 ]]; then fastq_reads="--paired "$fastq_reads; fi
+
 $KRAKEN2 --db $kraken2_db --output $KRAKEN2_OUTPUT --report $KRAKEN2_REPORT --confidence $confidence_scoring --threads $threads $fastq_reads
 $KRONA -q 2 -t 3 -s 4 $KRAKEN2_OUTPUT -o $KRONA_REPORT
