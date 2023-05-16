@@ -15,7 +15,7 @@
 
 #!/bin/bash
 
-usage="$(basename "$0") [-db kraken2_db] [-t threads]\nPossible choices for kraken2_db: standard, archaea, bacteria, plasmid, viral, human, fungi, plant, protozoa, nr, nt, UniVec, UniVec_Core"
+usage="$(basename "$0") [-db kraken2_db] [-t threads]\nPossible choices for kraken2_db: standard, archaea, bacteria, plasmid, viral, human, fungi, plant, protozoa, nr, nt, UniVec, UniVec_Core, silva, greengenes, rdp"
 
 while :
 do
@@ -52,12 +52,18 @@ done
 
 DB_name=$(echo $kraken2_db"_db" | sed 's/ /_/g')
 
-if [ "$DB_name" == "standard_db" ]; then
-   kraken2-build --standard --db $DB_name
+if [ "$DB_name" == "silva_db" ]; then
+  kraken2-build --special silva --db $DB_name --threads $threads;
+elif [ "$DB_name" == "rdp_db" ]; then
+  kraken2-build --special rdp --db $DB_name --threads $threads;
+elif [ "$DB_name" == "greengenes_db" ]; then
+  kraken2-build --special greengenes --db $DB_name --threads $threads;
+elif [ "$DB_name" == "standard_db" ]; then
+   kraken2-build --standard --db $DB_name --threads $threads;
 else
-  kraken2-build --download-taxonomy --db $DB_name
+  kraken2-build --download-taxonomy --db $DB_name;
   for lib in $kraken2_db; do
     kraken2-build --download-library $lib --db $DB_name;
   done
-  kraken2-build --build --db $DB_name --threads $threads
+  kraken2-build --build --db $DB_name --threads $threads;
 fi
